@@ -4,7 +4,7 @@ import * as types from './type'
 const LOAD_MORE_STEP = 10
 
 // 获取用户信息
-export const getHis = ({ commit }) => {
+export const getHis = (json) => {
   XHR.getHis(json)
       .ten(
           commit(types.GET_HIS, {

@@ -14,7 +14,7 @@ function filter (str) {  // 特殊字符转义
     return str
 }
 
-export default const fetch = ({ url, body = null, type = 'GET'}) => {
+export const fetch = ({ url, body = null, type = 'GET'}) => {
     var setting = { url: url, type: type, data: body}
     var aData = []
     var sData = ''

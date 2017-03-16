@@ -1,6 +1,6 @@
 // import Vue from 'vue'
 import Router from 'vue-router'
-
+import Home from './pages/home.vue'
 
 Vue.use(Router)
 
@@ -16,8 +16,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/top', component: createStoriesView('top') },
-    { path: '/user/:id', component: UserView },
-    { path: '/', redirect: '/top' }
+    { path: '/home', component: Home },
+    { path: '/', redirect: '/home' }
   ]
 })

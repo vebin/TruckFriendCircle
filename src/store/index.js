@@ -13,21 +13,12 @@ const store = new Vuex.Store({
   mutations,
 
   state: {
-    lists: {
-
-    }
+    lists: []
   },
 
   getters: {
 
-    activeIds (state) {
-      const { activeType, lists, counts } = state
-      return activeType ? lists[activeType].slice(0, counts[activeType]) : []
-    },
 
-    activeItems (state, getters) {
-      return getters.activeIds.map(id => state.items[id]).filter(_ => _)
-    }
   }
 })
 
