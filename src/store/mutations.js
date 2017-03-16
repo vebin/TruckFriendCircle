@@ -1,11 +1,11 @@
 import * as types from './type'
 
 export default {
-  [types.GET_HIS] (state, { messages }) {
-    
-  },
-
+  [types.IS_CK] (state, messages) {
+    console.log(messages,66666)
+    state.DATA = messages
+  }
 }
 
 
-// Vue.set(state.users, user.id, user)
+

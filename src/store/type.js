@@ -16,3 +16,7 @@ export const IS_MANAGE = 'IS_MANAGE'
 // 视频专题接口
 export const GET_VIDEO = 'GET_VIDEO'
 
+
+
+// 测试
+export const IS_CK = 'IS_CK'

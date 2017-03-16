@@ -13,12 +13,7 @@ const store = new Vuex.Store({
   mutations,
 
   state: {
-    lists: []
-  },
-
-  getters: {
-
-
+    DATA: {}
   }
 })
 

@@ -14,7 +14,7 @@ function filter (str) {  // 特殊字符转义
     return str
 }
 
-export const fetch = ({ url, body = null, type = 'GET'}) => {
+const fetch = ({ url, body = null, type = 'GET'}) => {
     var setting = { url: url, type: type, data: body}
     var aData = []
     var sData = ''
@@ -36,8 +36,10 @@ export const fetch = ({ url, body = null, type = 'GET'}) => {
               }
             }, () => {})
         } else {
-            for (var attr in setting.data) {
+            if(setting.data !== null) {
+              for (var attr in setting.data) {
                 aData.push(attr + '=' + filter(setting.data[attr]))
+              }
             }
             sData = aData.join('&')
             if (setting.url.indexOf('?') > 0) {
@@ -60,3 +62,5 @@ export const fetch = ({ url, body = null, type = 'GET'}) => {
         }
     })
 }
+
+export default fetch

@@ -1,6 +1,7 @@
 import fetch from './ajax'
 
-const HTTP_DEV = 'http://k.dev.360che.com'  // 开发
+// const HTTP_DEV = 'http://k.dev.360che.com'  // 开发
+const HTTP_DEV = 'https://didi.360che.com/saas/'  // 开发
 const HTTP_PRO = 'http://qa.k.360che.com'   // 预发布
 const HTTPS = 'https://k.360che.com'        // 正式
 
@@ -25,7 +26,12 @@ class XHR {
               type: 'post'
            })
   }
-
+// 测试
+  isCK (json) {
+    return fetch({
+              url: `${URLS}WeiXin/WXJSsignature.aspx`
+           })
+  }
 }
 
-export default new XHR
+export default new XHR()
