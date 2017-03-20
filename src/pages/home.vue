@@ -1,20 +1,25 @@
 <template>
-  <div>
-    <text class="text" @click="isck">图标测试 &#xe643;</text>
-    <text class="app">{{DATA}}</text>
-    <more :show="isShow"></more>
+  <div class="commont-view">
+    <app-header></app-header>
+    <!-- <text class="text" @click="isck">.</text>
+    <text class="app">{{DATA}}</text> -->
+<!--     <more :show="isShow"></more> -->
+    <div class="flow-btn" @click="jump('/postfm')">
+      <text></text>
+      <text>发布</text>
+    </div>
   </div>
 </template>
 
 
 <script>
   var domModule = weex.requireModule('dom')
-  const stream = weex.requireModule('stream')
-  import More from '../components/more.vue'
+  import AppHeader from '../components/app-header.vue'
+  // import More from '../components/more.vue'
   import XHR from '../api'
 
   export default {
-    components: { More },
+    components: { AppHeader },
     computed: {
       DATA () {
         return this.$store.state.DATA
@@ -22,13 +27,13 @@
     },
     data () {
       return {
-        isShow: false,
+        isShow: true,
       }
     },
     created () {
         domModule.addRule('font-face', {
           'font-family': "iconfont",
-          'src' : "url('//at.alicdn.com/t/font_laj6s1or6t2r19k9.ttf')"
+          'src' : "url('http://at.alicdn.com/t/font_amfmr26e6l9jm7vi.ttf')"
         })
     },
     methods: {
@@ -42,14 +47,30 @@
       }
     }
   }
+
+
+
+
 </script>
 
 
-<style>
-.text{
+<style scoped>
+.commont-view {
+    background-color: #FAFBFC;
+}
+.ffm{
   font-family: iconfont;
-  color: #333;
-  font-size: 30px;
-
+}
+.flow-btn{
+  position: fixed;
+  right: 36px;
+  bottom: 126px;
+  width: 94px;
+  height: 94px;
+  border-radius: 94px;
+  border: 2px solid #4798FF;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -16,5 +16,5 @@
 </script>
 
 <style scoped>
-.app{font-size: 100px;}
+
 </style>

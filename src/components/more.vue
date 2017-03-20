@@ -1,6 +1,6 @@
 <template>
     <div>
-        <text class="text">这个是子组建测试 &#xe643;</text>
+        <text class="text">这个测试 &#xe643;</text>
         <div v-if="no && show === false" class="more-box mtop">～没有数据～</div>
         <div v-else-if="show ? false : true" 
         class="more-box"
