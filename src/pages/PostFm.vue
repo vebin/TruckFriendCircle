@@ -14,52 +14,60 @@
       </div>
     </div>
     <div>
-      <textarea class="textarea" @input="oninput" @change="onchange" @focus="onfocus" @blur="onblur" placeholder="分享新鲜事……"></textarea>
+      <textarea class="textarea" v-model="text" placeholder="分享新鲜事…" ></textarea>
     </div>
+    
+    <div class="addr">
+      <div class="backs">
+        <text class="ffm ico">&#xe6d8;</text>
+      </div>
+
+      <div class="add-ico" @click="jump('/home')">
+        <text class="add-tit">当前位置</text>
+        <text class="add-txt">中国中南海</text>
+      </div>
+
+      <div class="sub-btn">
+        <text class="ffm">&#xe6d6;</text>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
+  const domModule = weex.requireModule('dom')
   const modal = weex.requireModule('modal')
   export default {
     data () {
       return {
-        isShow: true,
+        text: '',
       }
     },
+    created () {
+        domModule.addRule('font-face', {
+          'font-family': "iconfont",
+          'src' : "url('http://at.alicdn.com/t/font_amfmr26e6l9jm7vi.ttf')"
+        })
+    },
     methods: {
-      oninput (event) {
-        console.log('oninput:', event.value)
+      onchange (e) {
         modal.toast({
-          message: `oninput: ${event.value}`,
+          message: 'oninput',
           duration: 0.8
         })
       },
-      onchange (event) {
-        console.log('onchange:', event.value)
-        modal.toast({
-          message: `onchange: ${event.value}`,
-          duration: 0.8
-        })
+      onfocus (e) {
+
       },
-      onfocus (event) {
-        console.log('onfocus:', event.value)
-        modal.toast({
-          message: `onfocus: ${event.value}`,
-          duration: 0.8
-        })
-      },
-      onblur (event) {
-        console.log('onblur:', event.value)
-        modal.toast({
-          message: `input blur: ${event.value}`,
-          duration: 0.8
-        })
+      onblur (e) {
+
       }
     }
   }
 </script>
 <style scoped>
+  .ffm{ font-family: iconfont; }
   .commont-view {background-color: #FAFBFC;}
   .header {
     height: 88px;
@@ -70,7 +78,6 @@
   }
   .blu{ font-size: 36px; color: #1571e5; line-height: 88px;}
   .backs {
-
     height: 72px;
     padding-left: 30px;
     align-items:center;
@@ -98,4 +105,16 @@
     padding-right: 30px;
     color: #666666;
   }
+  .ico{color: #66D020;}
+  .addr{
+    min-height: 100px;
+    margin-top: 20px;
+    background-color: #fff;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .add-ico{flex:1; padding-left: 20px;}
+  .add-tit{font-size: 30px; color: #666;line-height: 30px;margin-bottom: 10px;}
+  .add-txt{font-size: 24px; color: #999; line-height: 25px;}
 </style>
