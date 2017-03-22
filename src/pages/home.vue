@@ -12,9 +12,7 @@
           :index="index"
           @disappear="ondisappear"
           keep-scroll-position="true">
-          <div class="item">
-          <text class="text">{{name.id}}</text>
-          </div>
+          <list-centent></list-centent>
         </cell>
       </list>
     </div>
@@ -40,25 +38,21 @@
         <cell
           v-for="(name, index) in newTab.DATA"
           append="tree"
-          class="row row2" 
+          class="row"
           :index="index"
           keep-scroll-position="true">
-          <div class="item">
-          <text class="text">{{name.id}}</text>
-          </div>
+          <list-centent></list-centent>
         </cell>
       </list>
 
       <list v-if="allNav == '2' ? true : false" class="nav-scroller">
         <cell
           v-for="(name, index) in vidTab.DATA"
-          append="tree"
-          class="row row" 
+          append="tree" 
+          class="row"
           :index="index"
           keep-scroll-position="true">
-          <div class="item">
-          <text class="text">{{name.id}}</text>
-          </div>
+          <list-centent></list-centent>
         </cell>
       </list>
 
@@ -66,12 +60,10 @@
         <cell
           v-for="(name, index) in folTab.DATA"
           append="tree"
-          class="row row3"
+          class="row"
           :index="index"
           keep-scroll-position="true">
-          <div class="item">
-          <text class="text">{{name.id}}</text>
-          </div>
+          <list-centent></list-centent>
         </cell>
       </list>
     </div>
@@ -94,12 +86,10 @@
         <cell
           v-for="(name, index) in actTab.DATA"
           append="tree"
-          class="row row3"
+          class="row"
           :index="index"
           keep-scroll-position="true">
-          <div class="item">
-          <text class="text">{{name.id}}</text>
-          </div>
+          <list-centent></list-centent>
         </cell>
       </list>
 
@@ -107,12 +97,10 @@
         <cell
           v-for="(name, index) in felTab.DATA"
           append="tree"
-          class="row row2"
+          class="row"
           :index="index"
           keep-scroll-position="true">
-          <div class="item">
-          <text class="text">{{name.id}}</text>
-          </div>
+          <list-centent></list-centent>
         </cell>
       </list>
     </div>
@@ -129,11 +117,11 @@
 <script>
   const dom = weex.requireModule('dom')
   import AppHeader from '../components/app-header.vue'
-  // import More from '../components/more.vue'
+  import ListCentent from '../components/list-centent.vue'
   import XHR from '../api'
 
   export default {
-    components: { AppHeader },
+    components: { AppHeader, ListCentent },
     computed: {
       // 热门新闻
       hotTab () {return this.$store.state.hotTab},
@@ -235,22 +223,7 @@
 .blue{color: #1571E5;}
 .nav-scroller{width: 750px; height: 1158px;}
 .scroller {width: 750px; height: 1246px; background-color: #FAFBFC;}
-.row {
-  height: 100px;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
-  margin-bottom: 20px;
-  border-bottom: 4px;
-  border-style: solid;
-  border-color: rgb(162, 217, 192);
-}
-.row2 {
-  border-color:#333;
-}
-.row3 {
-  border-color:#ccc;
-}
+.row{padding-bottom: 20px;background-color:#FAFBFC;}
 .text {
   font-size: 45px;
   color: #666666;
