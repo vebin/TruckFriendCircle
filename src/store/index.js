@@ -13,127 +13,62 @@ const store = new Vuex.Store({
   mutations,
 
   state: {
+    user:{
+        uid:"550643",
+        avater:"https://i.kcimg.cn/data/avatar/noavatar_small.gif",
+        version:'1.0.1'
+    },
     tabAll: 1,
     allNav: 1,
     neaNav: 1,
-
+    changeManage:'',
+    confirm:false,
+    Nowlog:{},
+    detailAid:'',
     hotTab: {
         top: 0,
-        DATA:[
-          {id: 9},
-          {id: 10},
-          {id: 11},
-          {id: 12},
-          {id: 13},
-          {id: 14},
-          {id: 15},
-          {id: 16},
-          {id: 17},
-          {id: 18},
-          {id: 19},
-          {id: 20},
-          {id: 21},
-          {id: 22},]
+        DATA:[],
+        discuss:[],
+        stick:[],
+        nextpagetoken:'',
+        myMessage:{}
     },
-
     newTab: {
         top: 0,
-        DATA:[
-          {id: 5},
-          {id: 6},
-          {id: 7},
-          {id: 8},
-          {id: 9},
-          {id: 10},
-          {id: 11},
-          {id: 12},
-          {id: 13},
-          {id: 14},
-          {id: 15},
-          {id: 16},
-          {id: 17},
-          {id: 18},
-          {id: 19},
-          {id: 20},
-          {id: 21},
-          {id: 22},]
+        DATA:[],
+        user:{},
+        startid:''
     },
     vidTab: {
         top: 0,
-        DATA:[{id: 1},
-          {id: 2},
-          {id: 3},
-          {id: 8},
-          {id: 9},
-          {id: 10},
-          {id: 11},
-          {id: 12},
-          {id: 13},
-          {id: 14},
-          {id: 15},
-          {id: 16},
-          {id: 17},
-          {id: 18},
-          {id: 19},
-          {id: 20},
-          {id: 21},
-          {id: 22},]
+        DATA:[],
+        nextpagetoken:''
     },
     folTab: {
         top: 0,
-        DATA:[{id: 1},
-          {id: 2},
-          {id: 3},
-          {id: 4},
-          {id: 5},
-          {id: 6},
-          {id: 7},
-          {id: 8},
-          {id: 9},
-          {id: 10},
-          {id: 17},
-          {id: 18},
-          {id: 19},
-          {id: 20},
-          {id: 21},
-          {id: 22},]
+        DATA:[]
     },
-
-
     actTab: {
         top: 0,
-        DATA:[{id: 1},
-          {id: 2},
-          {id: 3},
-          {id: 4},
-          {id: 5},
-          {id: 6},
-          {id: 7},
-          {id: 8},
-          {id: 9},
-          {id: 10},
-          {id: 11},
-          {id: 12},
-          {id: 13},
-          {id: 14},
-          {id: 15},
-          {id: 16},
-          {id: 17},
-          {id: 18},
-          {id: 19},
-          {id: 20},
-          {id: 21},
-          {id: 22},]
+        DATA:[]
     },
     felTab: {
         top: 0,
-        DATA:[{id: 1},
-          {id: 2},
-        
-          {id: 20},
-          {id: 21},
-          {id: 22},]
-    }
+        DATA:[]
+    },
+    setLike:{
+        DATA:[],
+        topThree:[]
+    },
+    buzz:{
+        DATA:[],
+        topThree:[]
+    },
+    dynamic:{
+        DATA:[],
+        topThree:[]
+    },
+    peopleData:[]
   }
 })
 

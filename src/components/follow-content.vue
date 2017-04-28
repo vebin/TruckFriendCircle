@@ -4,17 +4,20 @@
     <div class="follow-content">
         <image src="https://img2.kcimg.cn/help360che/3b94145c624b4a7f8566ea0a2f1355ec.jpg_180xx.jpg" class="follow-avatar"></image>
         <div class="follow-name"><text>幸福时光</text></div>
-        <div><text class="follow-add follow-btn">加关注</text></div>
+        <div><image class="follow-btn" src="https://frontendsvn.360che.com/icon-project/wap/app/TruckFriendCircle/images/add-follow.png"></image></div>
+        <!-- <div><text class="follow-add follow-btn">加关注</text></div> -->
     </div>
     <div class="follow-content">
         <image src="https://img2.kcimg.cn/help360che/3b94145c624b4a7f8566ea0a2f1355ec.jpg_180xx.jpg" class="follow-avatar"></image>
         <div class="follow-name"><text>幸福时光</text></div>
-        <div><text class="follow-success follow-btn">已关注</text></div>
+        <div><image class="follow-btn" src="https://frontendsvn.360che.com/icon-project/wap/app/TruckFriendCircle/images/follow-ok.png"></image></div>
+        <!-- <div><text class="follow-success follow-btn">已关注</text></div> -->
     </div>
     <div class="follow-content">
         <image src="https://img2.kcimg.cn/help360che/3b94145c624b4a7f8566ea0a2f1355ec.jpg_180xx.jpg" class="follow-avatar"></image>
         <div class="follow-name"><text>幸福时光</text></div>
-        <div><text class="follow-mutual follow-btn">互相关注</text></div>
+        <div><image class="follow-btn" src="https://frontendsvn.360che.com/icon-project/wap/app/TruckFriendCircle/images/follow.png"></image></div>
+        <!-- <div><text class="follow-mutual follow-btn">互相关注</text></div> -->
     </div>
   </scroller>
 </div>
@@ -47,24 +50,6 @@
     .follow-btn{
       width: 130px;
       height: 60px;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 5px;
-      text-align: center;
-      line-height: 60px;
-      font-size: 24px;
-    }
-    .follow-add{
-      border-color: #1571E5;
-      color: #1571E5;
-    }
-    .follow-success{
-      border-color: #F8B64E;
-      color: #F8B64E;
-    }
-    .follow-mutual{
-      border-color: #F86A4E;
-      color: #F86A4E;
     }
 </style>
 <script>

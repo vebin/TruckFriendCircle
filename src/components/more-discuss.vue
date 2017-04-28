@@ -1,15 +1,14 @@
 <template>
-<div>
-  <scroller class="scroller discuss-wrap" >
+  <!-- <div class="discuss-wrap" @click="jump(`/DiscussDetail/${discuss.aid}`)"> -->
+  <div class="discuss-wrap" @click="skip(`DiscussDetail.weex.js?aid=${discuss.aid}`)">
     <div class="discuss-list">
-        <image src="https://img2.kcimg.cn/help360che/3b94145c624b4a7f8566ea0a2f1355ec.jpg_180xx.jpg" class="discuss-avatar"></image>
+        <image :src="!discuss.img ? 'https://i.kcimg.cn/data/avatar/noavatar_small.gif':discuss.img" class="discuss-avatar" resize="cover"></image>
         <div class="discuss-centent">
-          <text class="discuss-title">今年被罚了多少钱</text>
-          <text class="discuss-describe">卡友们有没有算过这一年，累计交警路被罚了多少钱啊！卡友们有没有算过这一年，累计交警路被罚了多少钱啊！</text>
+          <text class="discuss-title">{{discuss.title}}</text>
+          <text class="discuss-describe">{{discuss.content}}</text>
         </div>
     </div>
-  </scroller>
-</div>
+  </div>
 </template>
 
 <style scoped>
@@ -48,16 +47,19 @@
 .discuss-avatar{
   width: 100px;
   height: 100px;
-  border-radius: 10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
   margin-right: 20px;
   margin-top: 4px;
 }
 </style>
 <script>
   export default {
+    props: ['discuss'],
     data () {
       return {
-        lists: [1, 2, 3]
       }
     },
     methods: {

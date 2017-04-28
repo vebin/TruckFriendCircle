@@ -19,7 +19,21 @@ var bannerPlugin = new webpack.BannerPlugin(
 function getBaseConfig () {
   return {
     entry: {
-      'index': path.resolve('src', 'index.js')
+      app: path.resolve('./src/app.js'),
+      about: path.resolve('./src/entry/about.js'),
+      addtruck: path.resolve('./src/entry/addtruck.js'),
+      detail: path.resolve('./src/entry/detail.js'),
+      DiscussDetail: path.resolve('./src/entry/discuss-detail.js'),
+      feedback: path.resolve('./src/entry/feedback.js'),
+      MoreTruckList: path.resolve('./src/entry/more-truck-list.js'),
+      MYNew: path.resolve('./src/entry/my-new.js'),
+      PeopleList: path.resolve('./src/entry/people-list.js'),
+      report: path.resolve('./src/entry/report.js'),
+      search: path.resolve('./src/entry/search.js'),
+      set: path.resolve('./src/entry/set.js'),
+      topic: path.resolve('./src/entry/topic.js'),
+      user: path.resolve('./src/entry/user.js'),
+      LookImg: path.resolve('./src/entry/look-img.js')
     },
     output: {
       path: 'dist',

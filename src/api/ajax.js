@@ -1,6 +1,7 @@
 import qs from 'qs'
 const stream = weex.requireModule('stream')
-
+const storage = weex.requireModule('storage')
+const modal = weex.requireModule('modal')
 function filter (str) {  // 特殊字符转义
     str += ''
     str = str.replace(/%/g, '%25')
@@ -18,14 +19,22 @@ const fetch = ({ url, body = null, type = 'GET'}) => {
     var setting = { url: url, type: type, data: body}
     var aData = []
     var sData = ''
+    var uid=''
     setting.type = setting.type.toUpperCase()
     return new Promise((resolve, reject) => {
+      storage.getItem('uid', event => {
+        if (event.data == 'undefined') {
+            modal.alert({message: '1'})
+            uid = "0"
+        }else{
+          uid = event.data
+        }
         if (setting.type == 'POST') {
             stream.fetch({
               method: 'POST',
               url: setting.url,
-              type: 'json',
-              headers: {'Content-Type':'application/json'},
+              type:'json',
+              headers: {'Content-Type':'application/x-www-form-urlencoded','user-agent':'USERID/'+uid},
               body: qs.stringify(setting.data)
             }, (response) => {
               if (response.status == 200) {
@@ -50,7 +59,8 @@ const fetch = ({ url, body = null, type = 'GET'}) => {
             stream.fetch({
               method: 'GET',
               url: sData,
-              type: 'json'
+              type:'json',
+              headers: {'Content-Type':'application/x-www-form-urlencoded','user-agent':'USERID/'+uid},
             }, (response) => {
               if (response.status == 200) {
                 resolve(response)
@@ -60,7 +70,8 @@ const fetch = ({ url, body = null, type = 'GET'}) => {
               }
             }, () => {})
         }
+      })
+        
     })
 }
-
 export default fetch

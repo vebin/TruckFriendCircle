@@ -1,54 +1,53 @@
 <template>
-  <div class="commont-view">
+  <div class="wrapper">
     <div class="header">
-      <div class="backs" @click="jump('/home')">
-        <text class="blu">取消</text>
-      </div>
-
-      <div class="nav">
-        <text class="nav">发布动态</text>
-      </div>
-
-      <div class="sub-btn" @click="jump('/')">
-        <text class="blu">发送</text>
+      <div class="post-btn" @click="back"><text class="header-text">取消</text></div>
+      <div class="title"><text>发布动态</text></div>
+      <div class="post-btn"><text class="header-text">发送</text></div>
+    </div>
+    <div class="content">
+      <textarea class="textarea" placeholder="分享新鲜事..."  @change="onchange"></textarea>
+      <!-- <div class="img-video">
+        <image src="https://frontendsvn.360che.com/icon-project/wap/app/TruckFriendCircle/images/add-pic.png" class="img-btn"></image>
+        <image src="https://frontendsvn.360che.com/icon-project/wap/app/TruckFriendCircle/images/add-video.png" class="video-btn"></image>
+      </div> -->
+      <div class="img-wrap">
+          <div class="img-list">
+            <image src="https://img7.kcimg.cn/friend/uploads/2017/04/17/20170417154053/27696.jpg" class="img"></image>
+            <text class="cancel-text">&#xe6e5;</text>
+          </div>
+          <div class="img-list">
+            <image src="https://img7.kcimg.cn/friend/uploads/2017/04/17/20170417154053/27696.jpg" class="img"></image>
+          </div>
+          <div class="img-list">
+            <image src="https://img7.kcimg.cn/friend/uploads/2017/04/17/20170417154053/27696.jpg" class="img"></image>
+          </div>
+          <div class="fore-img">
+            <image src="https://frontendsvn.360che.com/icon-project/wap/app/TruckFriendCircle/images/addpic.png" class="img"></image>
+          </div>
       </div>
     </div>
-    <div>
-      <textarea class="textarea" v-model="text" placeholder="分享新鲜事…" ></textarea>
+    <div class='footer'>
+       <div><text class="icon" style="color:#66D020">&#xe6e7;</text></div>
+       <div class="address">
+         <div style="margin-bottom:5px;"><text class="address-title">当前位置</text></div>
+         <div><text class="address-text">紫檀大厦</text></div>
+       </div>
+       <div><text class="icon" style="color:#999">&#xe6e6;</text></div>
     </div>
-    
-    <div class="addr">
-      <div class="backs">
-        <text class="ffm ico">&#xe6d8;</text>
-      </div>
-
-      <div class="add-ico" @click="jump('/home')">
-        <text class="add-tit">当前位置</text>
-        <text class="add-txt">中国中南海</text>
-      </div>
-
-      <div class="sub-btn">
-        <text class="ffm">&#xe6d6;</text>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
-  const domModule = weex.requireModule('dom')
   const modal = weex.requireModule('modal')
   export default {
     data () {
       return {
-        text: '',
+        address: '',
+        textarea:''
       }
     },
     created () {
-        domModule.addRule('font-face', {
-          'font-family': "iconfont",
-          'src' : "url('http://at.alicdn.com/t/font_amfmr26e6l9jm7vi.ttf')"
-        })
     },
     methods: {
       onchange (e) {
@@ -57,64 +56,32 @@
           duration: 0.8
         })
       },
-      onfocus (e) {
-
+      back: function () {
+        this.$router.back()
       },
-      onblur (e) {
-
-      }
     }
   }
 </script>
 <style scoped>
-  .ffm{ font-family: iconfont; }
-  .commont-view {background-color: #FAFBFC;}
-  .header {
-    height: 88px;
-    background-color: #FAFBFC;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .blu{ font-size: 36px; color: #1571e5; line-height: 88px;}
-  .backs {
-    height: 72px;
-    padding-left: 30px;
-    align-items:center;
-    justify-content:center;
-  }
-  .sub-btn{
+  .wrapper{background-color: #f7f9fa;}
+  .header{height: 88px;flex-direction: row;justify-content: center;align-items: center;padding-left: 30px;padding-right: 30px;}
+  .header-text{color: #1571E5;font-size: 36px;}
+  .title{flex:1;justify-content: center;align-items: center;}
 
-    height: 72px;
-    padding-right: 30px;
-    align-items:center;
-    justify-content:center;
-  }
-  .nav {
-    height: 88px;
-    line-height: 88px;
-    font-size: 36px; color: #333;
-  }
-  .textarea {
-    height: 400px;
-    font-size: 32px;
-    background: #fff;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    color: #666666;
-  }
-  .ico{color: #66D020;}
-  .addr{
-    min-height: 100px;
-    margin-top: 20px;
-    background-color: #fff;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .add-ico{flex:1; padding-left: 20px;}
-  .add-tit{font-size: 30px; color: #666;line-height: 30px;margin-bottom: 10px;}
-  .add-txt{font-size: 24px; color: #999; line-height: 25px;}
+  .content{background-color: #fff;padding-left: 30px;padding-right: 30px;padding-top: 30px;padding-bottom: 30px;}
+  .textarea{border:none;height: 150px;}
+  .img-video{flex-direction: row;}
+  .img-btn{width: 160px;height: 160px;margin-right: 30px;}
+  .video-btn{width: 160px;height: 160px}
+  .footer{flex-direction: row;padding-left: 30px;padding-right: 30px;justify-content: center;align-items: center;background-color: #fff;margin-top: 20px;height: 100px;}
+
+  .img-wrap{flex-direction:row;display:flex;flex-wrap:wrap;align-items:center;padding-bottom: 14px;}
+  .img-list{margin-right: 16px;padding-top: 10px;position: relative;}
+  .img{border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-top-left-radius:5px;border-top-right-radius:5px;width: 160px;height: 160px;}
+  .fore-img{margin-bottom: 10px;position: relative;}
+  .cancel-text{font-family: iconfont;position: absolute;right: 0px;top:0px;}
+  .address{margin-left: 20px;flex: 1;}
+  .address-title{font-size: 32px;color: #333}
+  .address-text{font-size: 24px;color: #999;}
+  .icon{font-family: iconfont;font-size: 34px;}
 </style>

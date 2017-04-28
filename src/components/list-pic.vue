@@ -1,6 +1,6 @@
 <template>
-    <div class="pic-wrap">
-        <image :src="item" class="pic-wrap-pic" v-for="item in PicWrap"></image>
+    <div class="pic-wrap" v-if="show">
+        <image :src="item" :class="[index==2||index==5||index==8 ? 'pic-wrap-list' : 'pic-wrap-pic']" v-for="(item, index) in picWrap.img" resize="cover" @click="showImg(index,picWrap.img)"></image>
     </div>
 </template>
 <style scoped>
@@ -8,32 +8,45 @@
   flex-direction:row;
   display:flex;
   flex-wrap:wrap;
-  justify-content:space-between;
+  /*justify-content:space-between;*/
   align-items:center;
-  padding-top: 24px;
   padding-bottom: 14px;
 }
 .pic-wrap-pic{
   height: 224px;
   width: 224px;
   margin-bottom: 10px;
+  margin-right: 8px;
+}
+.pic-wrap-list{
+  height: 224px;
+  width: 224px;
+  margin-bottom: 10px;
+  margin-right: 0;
 }
 </style>
 <script>
+  const modal = weex.requireModule('modal')
+  const storage = weex.requireModule('storage')
   export default {
+    props: ['picWrap'],
     data () {
       return {
-        PicWrap: [
-            "https://img6.kcimg.cn/bbs/month_1703/1703201529dadd81f3b5558f15.jpg!200",
-            "https://img6.kcimg.cn/bbs/month_1703/1703201529dadd81f3b5558f15.jpg!200",
-            "https://img6.kcimg.cn/bbs/month_1703/1703201529dadd81f3b5558f15.jpg!200",
-            "https://img6.kcimg.cn/bbs/month_1703/1703201529dadd81f3b5558f15.jpg!200",
-            "https://img6.kcimg.cn/bbs/month_1703/1703201529dadd81f3b5558f15.jpg!200",
-            "https://img6.kcimg.cn/bbs/month_1703/1703201529dadd81f3b5558f15.jpg!200"
-        ]
+        show:true,
+        Right:8
       }
     },
-    methods: {
+    created(){
+      if (this.picWrap.length=="0") {
+        this.show=false
+      }
+    },
+    methods:{
+      showImg(index,imgs){
+         var imgslist=imgs.join(',')
+         storage.setItem('imgs',imgslist)
+         this.skip(`LookImg.weex.js?index=${index}`)
+      },
     }
   }
 </script>

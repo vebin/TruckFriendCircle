@@ -12,12 +12,9 @@
     "ios"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "rimraf ./dist && webpack",
     "dev": "webpack --watch",
     "serve": "node build/init.js && serve -p 1777",
-    "copy:a": "cp dist/index.weex.js android/app/src/main/assets/index.js",
-    "copy:ios": "cp dist/index.weex.js ios/assets/index.js",
-    "copy": "npm run copy:android && npm run copy:ios",
     "debug": "weex-devtool"
   },
   "dependencies": {
